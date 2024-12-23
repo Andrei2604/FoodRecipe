@@ -58,7 +58,7 @@ import {
       <View style={styles.container}>
         {/* Back Button */}
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Text style={styles.backButtonText}>{"Back"}</Text>
+          <Text style={styles.backButtonText}>Back</Text>
         </TouchableOpacity>
   
         <TouchableOpacity onPress={handleAddrecipe} style={styles.addButton}>
