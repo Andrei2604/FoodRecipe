@@ -12,7 +12,23 @@ export default function RecipesFormScreen({ route, navigation }) {
   );
 
   const saverecipe = async () => {
- 
+        const newRecipe = { title, image, description };
+        try {
+        const existingRecipe = await AsyncStorage.getItem("customRecipes");
+        const recipes = existingRecipe ? JSON.parse(existingRecipe) : [];
+        // Если редактируется статья, обновите ее; в противном случае добавьте новую
+        if (recipeToEdit !== undefined) {
+            recipes[recipeIndex] = newRecipe;
+            await AsyncStorage.setItem("customRecipes", JSON.stringify(recipes));
+            if (onrecipeEdited) onrecipeEdited(); // Уведомить об редактировании
+        } else {
+            recipes.push(newRecipe); // Добавить новую статью
+            await AsyncStorage.setItem("customRecipes", JSON.stringify(recipes));
+        }
+        navigation.goBack(); // Вернуться на предыдущий экран
+        } catch (error) {
+        console.error("Ошибка при сохранении статьи:", error);
+        } 
   };
 
   return (

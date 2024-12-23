@@ -50,8 +50,8 @@ import {
       >
         {/* Recipe Image */}
         <View style={styles.imageContainer} testID="imageContainer">
-        {recipe.image && (
-            <Image source={{ uri: recipe.image }} style={styles.recipeImage} />
+        {recipe.recipeImage && (
+            <Image source={{ uri: recipe.recipeImage }} style={styles.recipeImage} />
           )}
         </View>
         <View
@@ -73,10 +73,10 @@ import {
   
         {/* Recipe Details */}
         <View style={styles.contentContainer} testID="contentContainer">
-        <Text style={styles.recipeTitle}>{recipe.title}</Text>
+        <Text style={styles.recipeTitle}>{recipe.recipeName}</Text>
   <View style={styles.sectionContainer}>
     <Text style={styles.sectionTitle}>Content</Text>
-    <Text style={styles.contentText}>{recipe.description}</Text>
+    <Text style={styles.contentText}>{recipe.cookingDescription}</Text>
   </View>
         </View>
       </ScrollView>
